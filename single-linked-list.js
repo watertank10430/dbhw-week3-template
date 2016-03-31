@@ -54,7 +54,7 @@ SinglyLinkedList.prototype.insertAfter = function(data, toNodeData) {
 };
 
 SinglyLinkedList.prototype.length = function() {
-  //TODO
+  return this.numberOfValues;
 };
 
 SinglyLinkedList.prototype.print = function() {
