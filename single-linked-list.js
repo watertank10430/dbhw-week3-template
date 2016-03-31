@@ -12,9 +12,11 @@ function SinglyLinkedList() {
 SinglyLinkedList.prototype.add = function(data) {
   var node = new Node(data);
   if(!this.head) {
-    //TODO
+    this.head = node;
+    this.tail = node;
   } else {
-    //TODO
+    this.tail.next = node;
+    this.tail = node;
   }
 
 };
@@ -22,7 +24,28 @@ SinglyLinkedList.prototype.add = function(data) {
 SinglyLinkedList.prototype.remove = function(data) {
   var previous = this.head;
   var current = this.head;
-  //TODO
+  var noOfValues = this.numberOfValues;
+  for(i=0; i<data; i++) {
+    if(this.current.next == null) break;
+    else {
+      this.previous = this.current;
+      this.current = this.current.next;
+    }
+  }
+  if(i == data) {
+    if(this.current.next == null) {
+      delete this.current;
+      this.tail = this.previous;
+    }
+    else {
+      this.current = this.current.next;
+      noOfValues = this.previous.next.numberOfValues;
+      delete this.previous.next;
+      this.previous.next = this.current;
+    return noOfValues;
+    }
+  }
+  else return 0;
 };
 
 SinglyLinkedList.prototype.insertAfter = function(data, toNodeData) {
